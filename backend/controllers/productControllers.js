@@ -1,6 +1,6 @@
 const Product = require("../models/Product");
 
-const getAllProducts = async () => {
+const getAllProducts = async (req, res) => {
   try {
     // Passing an empty object as a parameter returns all the data from the db
     const products = await Product.find({});
@@ -12,7 +12,7 @@ const getAllProducts = async () => {
   }
 };
 
-const getProductById = async () => {
+const getProductById = async (req, res) => {
   try {
     const { id } = req.params;
     const product = await Product.findById(id);

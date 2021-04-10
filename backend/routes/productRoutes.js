@@ -12,4 +12,4 @@ router.get("/", getAllProducts)
 // GET a product by id - /api/products/:id
 router.get("/:id", getProductById);
 
-modules.exports = router;
+module.exports = router;
