@@ -7,14 +7,14 @@ export const NavBar = () => {
 
   return (
     <nav className="navBar">
-      <div className="navBar__Logo">
+      <div className="navBar__logo">
         <h2>Golden Shoes</h2>
       </div>
-      <ul className="navBar__Links">
+      <ul className="navBar__links">
         <li>
-          <Link to="/cart">
+          <Link to="/cart" className="cart__link">
             <FaShoppingCart />
-            Cart
+            <span>Cart</span>
             <span className="cart__badge">0</span>
           </Link>
         </li>
