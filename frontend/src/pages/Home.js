@@ -7,6 +7,12 @@ export const HomePage = () => {
       <h2 className="homepage__title">Products</h2>
       <div className="homepage__products">
         <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
+        <Product />
       </div>
     </div>
   );
