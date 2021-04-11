@@ -13,7 +13,7 @@ export const CartPage = () => {
               <p>Subtotal: 0 items</p>
               <p>Price: £34.99</p>
           </div>
-          <div><button>Proceed to Checkout</button></div>
+          <div><button className="cartpage__btn">Proceed to Checkout</button></div>
       </div>
     </div>
   );
