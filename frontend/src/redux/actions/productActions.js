@@ -1,7 +1,7 @@
 import * as actionTypes from "../constants/productConstants";
 import axios from "axios";
 
-export const getProducts = () => async (dispatch) => {
+export const getAllProducts = () => async (dispatch) => {
   try {
     dispatch({ type: actionTypes.GET_PRODUCTS_REQUEST });
 
@@ -36,8 +36,6 @@ export const getProductDetails = (id) => async (dispatch) => {
     });
   }
 };
-
-// error.response && error.response.data.message ? data.message : error,
 
 export const removeProductDetails = () => (dispatch) => {
   dispatch({
