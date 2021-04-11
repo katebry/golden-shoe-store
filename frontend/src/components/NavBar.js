@@ -2,7 +2,7 @@ import "./NavBar.css";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 
-export const NavBar = () => {
+export const NavBar = ({ handleClick }) => {
   const loggedIn = false;
 
   return (
@@ -32,7 +32,7 @@ export const NavBar = () => {
         )}
       </ul>
 
-      <div className="hamburger__menu">
+      <div className="hamburger__menu" onClick={handleClick}>
         <div></div>
         <div></div>
         <div></div>

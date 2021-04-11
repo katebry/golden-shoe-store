@@ -1,0 +1,16 @@
+.sideDrawer {
+  width: 70%;
+  height: 100vh;
+  background: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  transform: translateX(-100%);
+  transition: all 0.6s ease-out;
+}
+
+.sideDrawer.show {
+  transform: translateX(0);
+  transition: all 0.6s ease-in;
+}

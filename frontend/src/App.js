@@ -1,5 +1,5 @@
-import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useState } from "react";
 import {
   HomePage,
   ProductPage,
@@ -7,15 +7,19 @@ import {
   LoginPage,
   AccountPage,
 } from "./pages/index";
-import { NavBar, Backdrop } from "./components/index";
+import { NavBar, Backdrop, SideDrawer } from "./components/index";
+import "./App.css";
 
 function App() {
+  const [sideToggle, setSideToggle] = useState(false);
+
   const loggedIn = false;
 
   return (
     <Router>
-      <NavBar />
-      <Backdrop />
+      <NavBar handleClick={() => setSideToggle(true)}/>
+      <SideDrawer show={sideToggle} />
+      <Backdrop show={sideToggle} handleClick={() => setSideToggle(false)} />
       <main>
         <Switch>
           <Route exact path="/" component={HomePage} />
