@@ -7,15 +7,15 @@ import {
   LoginPage,
   AccountPage,
 } from "./pages/index";
-import { NavBar } from "./components/NavBar";
+import { NavBar, Backdrop } from "./components/index";
 
 function App() {
-
   const loggedIn = false;
 
   return (
     <Router>
       <NavBar />
+      <Backdrop />
       <main>
         <Switch>
           <Route exact path="/" component={HomePage} />
