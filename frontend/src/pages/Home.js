@@ -1,7 +1,13 @@
+import "./Home.css";
+import { Product } from "../components/Product"
+
 export const HomePage = () => {
-    return (
-        <>
-        <h2>Home</h2>
-        </>
-    )
-}
+  return (
+    <div className="homepage">
+      <h2 className="homepage__title">Products</h2>
+      <div className="homepage__products">
+        <Product />
+      </div>
+    </div>
+  );
+};
