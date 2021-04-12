@@ -16,9 +16,9 @@ export const CartItem = ({ item, quantityChangeHandler }) => {
         value={item.quantity}
         onChange={(event) => quantityChangeHandler(item.product, event.target.value)}
       >
-        {[...Array(item.countInStock).keys()].map((x) => (
-          <option key={x + 1} value={x + 1}>
-            {x + 1}
+        {[...Array(item.countInStock).keys()].map((stockCount) => (
+          <option key={stockCount + 1} value={stockCount + 1}>
+            {stockCount + 1}
           </option>
         ))}
       </select>
