@@ -25,13 +25,6 @@ export const SideDrawer = ({ show, handleClick }) => {
       <div className={sideDrawerClass.join(" ")}>
         <ul className="sidedrawer__links" onClick={handleClick}>
           <li>
-            <Link to="/cart">
-              <FaShoppingCart />
-              <span>Cart</span>
-              <span className="sidedrawer__cartbadge">{getCartCount()}</span>
-            </Link>
-          </li>
-          <li>
             <Link to="/">Home</Link>
           </li>
           {loggedIn ? (
@@ -43,6 +36,16 @@ export const SideDrawer = ({ show, handleClick }) => {
               <Link to="/login">Login</Link>
             </li>
           )}
+          <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+          <li>
+            <Link to="/cart">
+              <FaShoppingCart />
+              <span>Cart</span>
+              <span className="sidedrawer__cartbadge">{getCartCount()}</span>
+            </Link>
+          </li>
         </ul>
       </div>
     )
