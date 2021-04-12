@@ -20,13 +20,6 @@ export const NavBar = ({ handleClick }) => {
       </div>
       <ul className="navBar__links">
         <li>
-          <Link to="/cart" className="cart__link">
-            <FaShoppingCart />
-            <span>Cart</span>
-            <span className="cart__badge">{getCartCount()}</span>
-          </Link>
-        </li>
-        <li>
           <Link to="/">Home</Link>
         </li>
         {loggedIn ? (
@@ -38,6 +31,16 @@ export const NavBar = ({ handleClick }) => {
             <Link to="/login">Login</Link>
           </li>
         )}
+         <li>
+            <Link to="/contact">Contact</Link>
+          </li>
+        <li>
+          <Link to="/cart" className="cart__link">
+            <FaShoppingCart />
+            <span>Cart</span>
+            <span className="cart__badge">{getCartCount()}</span>
+          </Link>
+        </li>
       </ul>
 
       <div className="hamburger__menu" onClick={handleClick}>

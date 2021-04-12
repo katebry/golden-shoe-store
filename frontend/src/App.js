@@ -6,6 +6,7 @@ import {
   CartPage,
   LoginPage,
   AccountPage,
+  ContactPage
 } from "./pages/index";
 import { NavBar, Backdrop, SideDrawer } from "./components/index";
 import "./App.css";
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/" component={HomePage} />
           <Route exact path="/product/:id" component={ProductPage} />
           <Route exact path="/cart" component={CartPage} />
+          <Route exact path="/contact" component={ContactPage} />
           {!loggedIn ? (
             <Route exact path="/login" component={LoginPage} />
           ) : (
