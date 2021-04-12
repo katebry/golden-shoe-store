@@ -1,3 +1,7 @@
+import "./Contact.css"
+import styled from "styled-components"
+
+
 export const ContactPage = () => {
   return (
     <div>

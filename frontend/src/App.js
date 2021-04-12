@@ -9,7 +9,11 @@ import {
   ContactPage
 } from "./pages/index";
 import { NavBar, Backdrop, SideDrawer } from "./components/index";
-import "./App.css";
+import styled from "styled-components"
+
+const MainContentContainer = styled.div`
+  padding: 10px;
+`
 
 function App() {
   const [sideToggle, setSideToggle] = useState(false);
@@ -21,7 +25,7 @@ function App() {
       <NavBar handleClick={() => setSideToggle(true)} />
       <SideDrawer show={sideToggle} handleClick={() => setSideToggle(false)} />
       <Backdrop show={sideToggle} handleClick={() => setSideToggle(false)} />
-      <main>
+      <MainContentContainer>
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route exact path="/product/:id" component={ProductPage} />
@@ -33,7 +37,7 @@ function App() {
             <Route exact path="/account" component={AccountPage} />
           )}
         </Switch>
-      </main>
+      </MainContentContainer>
     </Router>
   );
 }
