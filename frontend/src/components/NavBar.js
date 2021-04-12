@@ -4,6 +4,17 @@ import { FaShoppingCart } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
+const StyledTitle = styled(Link)`
+  color: #ca3cff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover {
+    color: #08ff00;
+  }
+`;
+
 const StyledHomeLink = styled(Link)`
   &:hover {
     color: #ca3cff;
@@ -11,15 +22,16 @@ const StyledHomeLink = styled(Link)`
 `;
 
 const StyledLoginLink = styled(Link)`
- &:hover {
-    color: #08FF00;
-  }`
+  &:hover {
+    color: #08ff00;
+  }
+`;
 
 const StyledContactLink = styled(Link)`
   &:hover {
-    color: #1F00FF;
+    color: #1f00ff;
   }
-`
+`;
 
 export const NavBar = ({ handleClick }) => {
   const loggedIn = false;
@@ -36,9 +48,7 @@ export const NavBar = ({ handleClick }) => {
 
   return (
     <nav className="navBar">
-      <div className="navBar__logo">
-        <h2>Golden Shoes</h2>
-      </div>
+      <StyledTitle to="/">Golden Shoes</StyledTitle>
       <ul className="navBar__links">
         <li>
           <StyledHomeLink to="/">Home</StyledHomeLink>

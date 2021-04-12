@@ -10,12 +10,6 @@
   border-bottom: 3px solid #ca3cff;
 }
 
-.navBar__logo h2 {
-  color: #ca3cff;
-  font-size: 1.8rem;
-  cursor: pointer;
-}
-
 .navBar__links {
   display: flex;
   list-style: none;
