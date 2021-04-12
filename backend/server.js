@@ -34,7 +34,11 @@ app.post("/send", (req, res) => {
       from: EMAIL,
       subject: subject,
       html: `<h3>${name}</h3>
-    <p>${message}</p>`,
+    <p>We received your message: ${message}</p>
+    <p>We will respond within the next 48 hours.</p>
+    <p>Kind regards,</p>
+    <p>The Golden Shoe Team </p>
+    `
     })
     .then((resp) => {
       res.json({ resp });
