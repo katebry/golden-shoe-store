@@ -1,6 +1,7 @@
 import "./SideDrawer.css";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { useSelector } from "react-redux";
 
 export const SideDrawer = ({ show, handleClick }) => {
   const sideDrawerClass = ["sidedrawer"];
@@ -8,6 +9,16 @@ export const SideDrawer = ({ show, handleClick }) => {
   const loggedIn = false;
 
   if (show) sideDrawerClass.push("show");
+
+  const cart = useSelector((state) => state.cart);
+  const { cartItems } = cart;
+
+  const getCartCount = () => {
+    return cartItems.reduce(
+      (quantity, item) => Number(item.quantity) + quantity,
+      0
+    );
+  };
 
   return (
     show && (
@@ -17,7 +28,7 @@ export const SideDrawer = ({ show, handleClick }) => {
             <Link to="/cart">
               <FaShoppingCart />
               <span>Cart</span>
-              <span className="sidedrawer__cartbadge">0</span>
+              <span className="sidedrawer__cartbadge">{getCartCount()}</span>
             </Link>
           </li>
           <li>
