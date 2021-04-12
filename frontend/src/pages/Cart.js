@@ -46,8 +46,8 @@ export const CartPage = () => {
       </div>
       <div className="cartpage__right">
         <div className="cartpage__info">
-          <p>Subtotal: ({getCartCount()}) items</p>
-          <p>Price: £{getCartTotal()}</p>
+          <p>Items in cart: {getCartCount()}</p>
+          <p>Total cost: £{getCartTotal().toFixed(2)}</p>
         </div>
         <div>
           <button className="cartpage__btn">Proceed to Checkout</button>
