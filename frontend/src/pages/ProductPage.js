@@ -27,10 +27,7 @@ export const ProductPage = ({ match, history }) => {
         <>
           <div className="productscreen__left">
             <div className="left__image">
-              <img
-                src={product.imageUrl}
-                alt={product.name}
-              />
+              <img src={product.imageUrl} alt={product.name} />
             </div>
             <div className="left__info">
               <p className="left__name">{product.name}</p>
@@ -41,18 +38,25 @@ export const ProductPage = ({ match, history }) => {
           <div className="productscreen__right">
             <div className="right__info">
               <p>
-                Price <span>the price</span>
+                Price <span>£{product.price}</span>
               </p>
               <p>
-                Status: <span>In Stock</span>
+                Status:{" "}
+                <span>
+                  {product.countInStock > 0 ? "In Stock" : "Sold out!"}
+                </span>
               </p>
               <p>
                 Quantity:{" "}
-                <select>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
+                <select
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                >
+                  {[...Array(product.countInStock).keys()].map((numberInStock) => (
+                    <option key={numberInStock + 1} value={numberInStock + 1}>
+                      {numberInStock + 1}
+                    </option>
+                  ))}
                 </select>
               </p>
               <p>
