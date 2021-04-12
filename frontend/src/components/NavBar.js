@@ -48,7 +48,7 @@ export const NavBar = ({ handleClick }) => {
 
   return (
     <nav className="navBar">
-      <StyledTitle to="/">Golden Shoes</StyledTitle>
+      <StyledTitle to="/">GOLDEN SHOES</StyledTitle>
       <ul className="navBar__links">
         <li>
           <StyledHomeLink to="/">Home</StyledHomeLink>
