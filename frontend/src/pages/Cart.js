@@ -2,12 +2,17 @@ import "./Cart.css";
 import { CartItem } from "../components/CartItem";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "../redux/actions/cartActions";
 
 export const CartPage = () => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+
+  const quantityChangeHandler = (id, quantity) => {
+    dispatch(addToCart(id, quantity));
+  };
 
   return (
     <div className="cartpage">
@@ -18,7 +23,7 @@ export const CartPage = () => {
             Your cart is empty <Link to="/">Back to Shop</Link>
           </div>
         ) : (
-          cartItems.map((item) => <CartItem item={item}/>)
+          cartItems.map((item) => <CartItem item={item} quantityChangeHandler={quantityChangeHandler}/>)
         )}
       </div>
       <div className="cartpage__right">
