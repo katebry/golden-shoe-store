@@ -13,7 +13,32 @@ body {
   background-color: #f3e8ee;
 }
 
+::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-family: "Futura";
+}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  font-family: "Futura";
+}
+:-ms-input-placeholder {
+  /* IE 10+ */
+  font-family: "Futura";
+}
+:-moz-placeholder {
+  /* Firefox 18- */
+  font-family: "Futura";
+}
+
 img {
   width: 100%;
   object-fit: contain;
+}
+
+input {
+  font-family: "Futura";
+}
+
+button {
+  font-family: "Futura";
 }

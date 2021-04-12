@@ -1,4 +1,16 @@
 import { useState } from "react";
+import "./Form.css";
+import styled from "styled-components";
+
+const EmailInput = styled.input`
+  grid-area: 1 / 1 / 2 / 2;
+`;
+
+const MessageInput = styled.textarea`
+  grid-area: 2 / 1 / 4 / 4;
+  padding: 10px;
+  font-size: 1rem;
+`
 
 export const Form = () => {
   const [name, setName] = useState("");
@@ -21,6 +33,7 @@ export const Form = () => {
     })
       .then((res) => res.json())
       .then((data) => {
+        // Need to refactor this
         alert(data.message);
         setMessage("");
         setName("");
@@ -32,33 +45,32 @@ export const Form = () => {
       });
   };
   return (
-    <>
-      <h2>Send me a Message</h2>
-      <input
+    <div className="form">
+      <EmailInput
         type="text"
-        placeholder="email"
+        placeholder="Your email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
       <input
         type="text"
-        placeholder="name"
+        placeholder="Name"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
       <input
         type="text"
-        placeholder="subject"
+        placeholder="Subject"
         value={subject}
         onChange={(e) => setSubject(e.target.value)}
       />
-      <textarea
+      <MessageInput
         type="text"
         placeholder="Message"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
       <button onClick={PostData}>Send Message</button>
-    </>
+    </div>
   );
 };
