@@ -1,6 +1,22 @@
 import "./ProductPage.css";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { getProductDetails } from "../redux/actions/productActions";
+import { addToCart } from "../redux/actions/cartActions";
 
-export const ProductPage = () => {
+export const ProductPage = ({ match, history }) => {
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+
+  const productDetails = useSelector((state) => state.getProductDetails);
+  const { loading, error, product } = productDetails;
+
+  useEffect(() => {
+    if (product && match.params.id !== product._id) {
+      dispatch(getProductDetails(match.params.id))
+    }
+  }, [dispatch, product, match])
+
   return (
     <div className="productscreen">
       <div className="productscreen__left">
@@ -33,7 +49,9 @@ export const ProductPage = () => {
               <option value="4">4</option>
             </select>
           </p>
-          <p><button type="button">Add To Cart</button></p>
+          <p>
+            <button type="button">Add To Cart</button>
+          </p>
         </div>
       </div>
     </div>
