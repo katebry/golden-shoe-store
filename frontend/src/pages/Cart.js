@@ -15,7 +15,11 @@ export const CartPage = () => {
   };
 
   const removeHandler = (id) => {
-    dispatch(removeFromCart(id))
+    dispatch(removeFromCart(id));
+  };
+
+  const getCartCount = () => {
+    return cartItems.reduce((quantity, item) => Number(item.quantity) + quantity, 0)
   }
 
   return (
@@ -27,12 +31,18 @@ export const CartPage = () => {
             Your cart is empty <Link to="/">Back to Shop</Link>
           </div>
         ) : (
-          cartItems.map((item) => <CartItem item={item} quantityChangeHandler={quantityChangeHandler} removeHandler={removeHandler}/>)
+          cartItems.map((item) => (
+            <CartItem
+              item={item}
+              quantityChangeHandler={quantityChangeHandler}
+              removeHandler={removeHandler}
+            />
+          ))
         )}
       </div>
       <div className="cartpage__right">
         <div className="cartpage__info">
-          <p>Subtotal: 0 items</p>
+          <p>Subtotal: ({getCartCount()}) items</p>
           <p>Price: £34.99</p>
         </div>
         <div>
