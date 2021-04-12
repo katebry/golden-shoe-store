@@ -17,6 +17,11 @@ export const ProductPage = ({ match, history }) => {
     }
   }, [dispatch, product, match]);
 
+  const addToCartHandler = () => {
+    dispatch(addToCart(product._id, quantity));
+    history.push("/cart");
+  };
+
   return (
     <div className="productscreen">
       {loading ? (
@@ -52,15 +57,19 @@ export const ProductPage = ({ match, history }) => {
                   value={quantity}
                   onChange={(e) => setQuantity(e.target.value)}
                 >
-                  {[...Array(product.countInStock).keys()].map((numberInStock) => (
-                    <option key={numberInStock + 1} value={numberInStock + 1}>
-                      {numberInStock + 1}
-                    </option>
-                  ))}
+                  {[...Array(product.countInStock).keys()].map(
+                    (numberInStock) => (
+                      <option key={numberInStock + 1} value={numberInStock + 1}>
+                        {numberInStock + 1}
+                      </option>
+                    )
+                  )}
                 </select>
               </p>
               <p>
-                <button type="button">Add To Cart</button>
+                <button type="button" onClick={addToCartHandler}>
+                  Add To Cart
+                </button>
               </p>
             </div>
           </div>
