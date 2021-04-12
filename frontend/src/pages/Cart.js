@@ -22,6 +22,10 @@ export const CartPage = () => {
     return cartItems.reduce((quantity, item) => Number(item.quantity) + quantity, 0)
   }
 
+  const getCartTotal = () => {
+    return cartItems.reduce((price, item) => (item.price * item.quantity) + price, 0)
+  }
+
   return (
     <div className="cartpage">
       <div className="cartpage__left">
@@ -43,7 +47,7 @@ export const CartPage = () => {
       <div className="cartpage__right">
         <div className="cartpage__info">
           <p>Subtotal: ({getCartCount()}) items</p>
-          <p>Price: £34.99</p>
+          <p>Price: £{getCartTotal()}</p>
         </div>
         <div>
           <button className="cartpage__btn">Proceed to Checkout</button>
