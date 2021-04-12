@@ -5,8 +5,9 @@ import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 const StyledTitle = styled(Link)`
+  margin-left: 10px;
   color: #ca3cff;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   cursor: pointer;
   text-decoration: none;
   font-weight: bold;

@@ -1,5 +1,5 @@
 import "./Cart.css";
-import { CartItem } from "../components/CartItem";
+import { CartItem } from "../components/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../redux/actions/cartActions";

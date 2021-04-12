@@ -1,5 +1,6 @@
 import "./Contact.css";
 import styled from "styled-components";
+import { Form } from "../components/index";
 
 const StyledTitle = styled.h1`
   padding: 1.5rem 1rem;
@@ -32,10 +33,13 @@ export const ContactPage = () => {
         <h3>I'd like to speak to someone</h3>
         <p>
           Feel free to visit us at our flagship store in London. If you'd like
-          to contac us via phone we have a dedicated helpline open 9 - 5pm
+          to contact us via phone we have a dedicated helpline open 9 - 5pm
           Monday - Friday. You can also contact us via the webform found further
           down the page.
         </p>
+      </div>
+      <div className="formSection">
+          <Form />
       </div>
     </div>
   );

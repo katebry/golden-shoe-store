@@ -1,7 +1,7 @@
 import "./Home.css";
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Product } from "../components/Product";
+import { Product } from "../components/index";
 import { getAllProducts} from "../redux/actions/productActions";
 
 export const HomePage = () => {
