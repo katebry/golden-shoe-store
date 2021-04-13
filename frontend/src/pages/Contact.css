@@ -13,3 +13,8 @@
 .faq > p {
   margin-bottom: 10px;
 }
+
+.successMessage {
+  padding: 16px;
+  color: #ca3cff;
+}

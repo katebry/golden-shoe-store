@@ -1,5 +1,6 @@
 import "./Contact.css";
 import styled from "styled-components";
+import { useState } from "react";
 import { Form } from "../components/index";
 
 const StyledTitle = styled.h1`
@@ -8,6 +9,15 @@ const StyledTitle = styled.h1`
 `;
 
 export const ContactPage = () => {
+
+  const initialState = false
+
+  const [success, setSuccess] = useState(initialState)
+
+  const handleSuccess = () => {
+    setSuccess(!initialState)
+  };
+
   return (
     <div>
       <StyledTitle>CONTACT US</StyledTitle>
@@ -34,13 +44,14 @@ export const ContactPage = () => {
         <p>
           Feel free to visit us at our flagship store in London. If you'd like
           to contact us via phone we have a dedicated helpline open 9 - 5pm
-          Monday - Friday. You can also contact us via the webform found further
-          down the page.
+          Monday - Friday, call us on 0800 009 009. You can also contact us via
+          the webform below.
         </p>
       </div>
-      <div className="formSection">
-          <Form />
+      <div className="successMessage">
+      {success && <h2>Thanks for contacting Golden Shoes, we aim to respond to your query within 48 hours.</h2>}
       </div>
+        <Form handleSuccess={handleSuccess} />
     </div>
   );
 };

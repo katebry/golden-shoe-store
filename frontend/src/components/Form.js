@@ -10,9 +10,9 @@ const MessageInput = styled.textarea`
   grid-area: 2 / 1 / 4 / 4;
   padding: 10px;
   font-size: 1rem;
-`
+`;
 
-export const Form = () => {
+export const Form = ({ handleSuccess }) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -33,8 +33,7 @@ export const Form = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // Need to refactor this
-        alert(data.message);
+        handleSuccess(data.message);
         setMessage("");
         setName("");
         setSubject("");
@@ -44,6 +43,7 @@ export const Form = () => {
         console.log(err);
       });
   };
+
   return (
     <div className="form">
       <EmailInput
