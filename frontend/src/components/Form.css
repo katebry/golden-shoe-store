@@ -15,3 +15,20 @@
 .form button {
   grid-area: 4 / 2 / 5 / 3;
 }
+
+@media (max-width: 700px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form textarea {
+    min-height: 200px;
+  }
+
+  .form button {
+    justify-content: center;
+    align-self: center;
+    padding: 5px 10px;
+  }
+}
