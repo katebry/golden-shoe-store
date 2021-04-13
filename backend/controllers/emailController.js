@@ -22,9 +22,10 @@ const sendEmail = async (req, res) => {
       to: email,
       from: EMAIL,
       subject: `Thanks for contacting Golden Shoe about: ${subject}`,
-      html: `<h3>${name}</h3>
+      html: `<h4>Dear ${name}</h4>
+    <p>Thanks for getting in touch!</p>
     <p>We received your message: ${message}</p>
-    <p>We will respond within the next 48 hours.</p>
+    <p>We aim to respond within the next 48 hours.</p>
     <p>Kind regards,</p>
     <p>The Golden Shoe Team</p>
     `,
