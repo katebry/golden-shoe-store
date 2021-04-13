@@ -1,5 +1,5 @@
 import "./Home.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Product } from "../components/index";
 import { getAllProducts } from "../redux/actions/productActions";
@@ -7,6 +7,7 @@ import sale from "../assets/sale.png";
 
 export const HomePage = () => {
   const dispatch = useDispatch();
+  const [categoryButtons, setCategoryButtons] = useState([]);
 
   const getProducts = useSelector((state) => state.getProducts);
 
@@ -14,21 +15,33 @@ export const HomePage = () => {
 
   useEffect(() => {
     dispatch(getAllProducts());
-    console.log("calling useEffect hook");
   }, [dispatch]);
+
+  useEffect(() => {
+    // TODO unit test this function
+    const uniqueCategories = products.reduce((unique, o) => {
+      if (!unique.some((obj) => obj.category === o.category)) {
+        unique.push(o);
+      }
+      return unique;
+    }, []);
+
+    setCategoryButtons(uniqueCategories);
+  }, [products]);
 
   return (
     <div className="homepage">
-      <div className="topContent">
-        <div className="searchSection">
-          Category Filter
-        </div>
-        <div className="saleImage">
-          <img
-            src={sale}
-            alt="20% off kids shoes, enter code 'KID20'. Spend £60 and get £10 off your purchase (excluding kids shoes)"
-          />
-        </div>
+      <div className="saleImage">
+        <img
+          src={sale}
+          alt="20% off kids shoes, enter code 'KID20'. Spend £60 and get £10 off your purchase (excluding kids shoes)"
+        />
+      </div>
+      <div className="categoryFilter">
+        Filter by Category:
+        {categoryButtons.map((type) => (
+          <button key={type.category}>{type.category}</button>
+        ))}
       </div>
       <div className="homepage__products">
         {loading ? (
@@ -43,7 +56,8 @@ export const HomePage = () => {
               name={product.name}
               imageUrl={product.imageUrl}
               price={product.price}
-              decrription={product.description}
+              description={product.description}
+              category={product.category}
             />
           ))
         )}

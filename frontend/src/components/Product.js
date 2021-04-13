@@ -1,7 +1,7 @@
 import "./Product.css";
 import { Link } from "react-router-dom";
 
-export const Product = ({name, description, price, imageUrl, productId}) => {
+export const Product = ({name, description, price, imageUrl, category, productId}) => {
   return (
     <div className="product">
       <img src={imageUrl} alt={name} />
@@ -9,6 +9,7 @@ export const Product = ({name, description, price, imageUrl, productId}) => {
         <p className="info__name">{name}</p>
         <p className="info__description">{description}</p>
         <p className="info__price">£{price}</p>
+        <p>{category}</p>
         <Link to={`/product/${productId}`} className="info__button">View Product</Link>
       </div>
     </div>
