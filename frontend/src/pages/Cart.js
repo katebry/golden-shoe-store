@@ -1,5 +1,4 @@
 import "./Cart.css";
-import { useState } from "react";
 import { CartItem } from "../components/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
@@ -31,7 +30,7 @@ export const CartPage = () => {
       (price, item) => item.price * item.quantity + price,
       0
     );
-    return cartTotal > 60 ? cartTotal - 10 : cartTotal;
+    return cartTotal >= 60 ? cartTotal - 10 : cartTotal;
   };
 
   return (
@@ -57,7 +56,7 @@ export const CartPage = () => {
         <div className="cartpage__info">
           <p>Items in cart: {getCartCount()}</p>
           <p>Total cost: £{getCartTotal().toFixed(2)}</p>
-          {getCartTotal().toFixed(2) > 60 && (
+          {getCartTotal().toFixed(2) >= 60 && (
             <p>Congratulations, you qualify for our £10 off discount!</p>
           )}
         </div>
