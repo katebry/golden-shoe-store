@@ -9,6 +9,7 @@ export const HomePage = () => {
   const dispatch = useDispatch();
   const [categoryButtons, setCategoryButtons] = useState([]);
   const [filterByCategory, setFilterByCategory] = useState("");
+  const [search, setSearch] = useState("");
 
   const getProducts = useSelector((state) => state.getProducts);
 
@@ -31,7 +32,6 @@ export const HomePage = () => {
   }, [products]);
 
   const filterProducts = (category) => {
-    console.log(category);
     setFilterByCategory(category);
   };
 
@@ -54,26 +54,28 @@ export const HomePage = () => {
           </button>
         ))}
       </div>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
       <div className="homepage__products">
         {loading ? (
           <h2>LOADING...</h2>
         ) : error ? (
           <h2>There's a problem... {error}</h2>
-        ) : !filterByCategory ? (
-          products.map((product) => (
-            <Product
-              key={product._id}
-              productId={product._id}
-              name={product.name}
-              imageUrl={product.imageUrl}
-              price={product.price}
-              description={product.description}
-              category={product.category}
-            />
-          ))
         ) : (
           products
-            .filter((product) => product.category === filterByCategory)
+            .filter((product) =>
+              filterByCategory
+                ? product.category === filterByCategory
+                : search
+                ? product.name.toLowerCase().includes(search.toLowerCase())
+                : products
+            )
             .map((product) => (
               <Product
                 key={product._id}
