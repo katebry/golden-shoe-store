@@ -8,14 +8,17 @@ const StyledTitle = styled.h1`
   font-size: 1.7rem;
 `;
 
+const StyledH2 = styled.h2`
+  color: #ca3cff;
+`;
+
 export const ContactPage = () => {
+  const initialState = false;
 
-  const initialState = false
-
-  const [success, setSuccess] = useState(initialState)
+  const [success, setSuccess] = useState(initialState);
 
   const handleSuccess = () => {
-    setSuccess(!initialState)
+    setSuccess(!initialState);
   };
 
   return (
@@ -49,9 +52,16 @@ export const ContactPage = () => {
         </p>
       </div>
       <div className="successMessage">
-      {success && <h2>Thanks for contacting Golden Shoes, we aim to respond to your query within 48 hours.</h2>}
+        {success ? (
+          <StyledH2>
+            Thanks for contacting Golden Shoes, we aim to respond to your query
+            within 48 hours.
+          </StyledH2>
+        ) : (
+          <h2>Send us an email</h2>
+        )}
       </div>
-        <Form handleSuccess={handleSuccess} />
+      <Form handleSuccess={handleSuccess} />
     </div>
   );
 };
