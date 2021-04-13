@@ -8,6 +8,7 @@ import sale from "../assets/sale.png";
 export const HomePage = () => {
   const dispatch = useDispatch();
   const [categoryButtons, setCategoryButtons] = useState([]);
+  const [filterByCategory, setFilterByCategory] = useState("");
 
   const getProducts = useSelector((state) => state.getProducts);
 
@@ -29,6 +30,11 @@ export const HomePage = () => {
     setCategoryButtons(uniqueCategories);
   }, [products]);
 
+  const filterProducts = (category) => {
+    console.log(category);
+    setFilterByCategory(category);
+  };
+
   return (
     <div className="homepage">
       <div className="saleImage">
@@ -40,7 +46,12 @@ export const HomePage = () => {
       <div className="categoryFilter">
         Filter by Category:
         {categoryButtons.map((type) => (
-          <button key={type.category}>{type.category}</button>
+          <button
+            key={type.category}
+            onClick={() => filterProducts(type.category)}
+          >
+            {type.category}
+          </button>
         ))}
       </div>
       <div className="homepage__products">
@@ -48,7 +59,7 @@ export const HomePage = () => {
           <h2>LOADING...</h2>
         ) : error ? (
           <h2>There's a problem... {error}</h2>
-        ) : (
+        ) : !filterByCategory ? (
           products.map((product) => (
             <Product
               key={product._id}
@@ -60,6 +71,20 @@ export const HomePage = () => {
               category={product.category}
             />
           ))
+        ) : (
+          products
+            .filter((product) => product.category === filterByCategory)
+            .map((product) => (
+              <Product
+                key={product._id}
+                productId={product._id}
+                name={product.name}
+                imageUrl={product.imageUrl}
+                price={product.price}
+                description={product.description}
+                category={product.category}
+              />
+            ))
         )}
       </div>
     </div>
