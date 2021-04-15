@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   HomePage,
   ProductPage,
@@ -18,9 +18,6 @@ const MainContentContainer = styled.div`
 
 function App() {
   const [sideToggle, setSideToggle] = useState(false);
-  const [user, setUser] = useState(
-    JSON.parse(localStorage.getItem("goldenShoesProfile"))
-  );
 
   const auth = useSelector((state) => state.auth);
   const { authData } = auth;
