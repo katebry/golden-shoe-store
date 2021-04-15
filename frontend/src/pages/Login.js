@@ -3,6 +3,7 @@ import { Input } from "../components/index";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
 import { addAuthToken } from "../redux/actions/authActions";
+import { useHistory } from "react-router-dom";
 
 export const LoginPage = () => {
   const initialState = { firstName: "", lastName: "", email: "", password: "" };
@@ -10,6 +11,7 @@ export const LoginPage = () => {
   const [isNewUser, setIsNewUser] = useState(false);
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const switchMode = () => {
     setIsNewUser(!isNewUser);
@@ -31,7 +33,7 @@ export const LoginPage = () => {
     try {
       dispatch(addAuthToken(result, token));
 
-      // history.push("/");
+      history.push("/");
     } catch (error) {
       console.log(error);
     }
