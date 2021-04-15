@@ -11,7 +11,7 @@ export const logOut = () => async (dispatch) => {
 
 export const signUp = (formData, router) => async (dispatch) => {
   try {
-    const { data } = await axios.post("/user", formData);
+    const { data } = await axios.post("/user/sigup", formData);
     
     dispatch({ type: actionTypes.AUTH, payload: data });
 
@@ -23,7 +23,7 @@ export const signUp = (formData, router) => async (dispatch) => {
 
 export const signIn = (formData, router) => async (dispatch) => {
   try {
-    const { data } = await axios.post("/user", formData);
+    const { data } = await axios.post("/user/signin", formData);
 
     dispatch({ type: actionTypes.AUTH, payload: data });
 
