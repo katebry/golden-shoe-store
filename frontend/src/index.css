@@ -40,6 +40,10 @@ input {
 
 button {
   font-family: "Futura";
+  background-color: #003e2c;
+  border-radius: 3px;
+  color: white;
+  padding: 3px;
 }
 
 textarea {

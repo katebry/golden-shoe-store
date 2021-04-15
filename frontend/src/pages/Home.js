@@ -47,23 +47,23 @@ export const HomePage = () => {
         <div className="categoryFilter">
           Filter:
           {categoryButtons.map((type) => (
-            <button
-              key={type.category}
-              onClick={() => filterProducts(type.category)}
-            >
-              {type.category.toUpperCase()}
-            </button>
+              <button
+                key={type.category}
+                onClick={() => filterProducts(type.category)}
+              >
+                {type.category.toUpperCase()}
+              </button>
           ))}
         </div>
-        </div>
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-          />
-        </div>
+      </div>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
       <div className="homepage__products">
         {loading ? (
           <h2>LOADING...</h2>
