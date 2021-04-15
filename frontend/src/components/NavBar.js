@@ -6,32 +6,11 @@ import styled from "styled-components";
 
 const StyledTitle = styled(Link)`
   margin-left: 10px;
-  color: #ca3cff;
+  color: black;
   font-size: 1.7rem;
   cursor: pointer;
   text-decoration: none;
-  font-weight: bold;
-  &:hover {
-    color: #08ff00;
-  }
-`;
-
-const StyledHomeLink = styled(Link)`
-  &:hover {
-    color: #ca3cff;
-  }
-`;
-
-const StyledLoginLink = styled(Link)`
-  &:hover {
-    color: #08ff00;
-  }
-`;
-
-const StyledContactLink = styled(Link)`
-  &:hover {
-    color: #1f00ff;
-  }
+  font-weight: 500;
 `;
 
 export const NavBar = ({ handleClick }) => {
@@ -51,22 +30,22 @@ export const NavBar = ({ handleClick }) => {
 
   return (
     <nav className="navBar">
-      <StyledTitle to="/">GOLDEN SHOES</StyledTitle>
+      <StyledTitle to="/">Golden Shoes</StyledTitle>
       <ul className="navBar__links">
         <li>
-          <StyledHomeLink to="/">Home</StyledHomeLink>
+          <Link to="/">Home</Link>
         </li>
         {authData || loggedIn ? (
           <li>
-            <StyledLoginLink to="/account">My Account</StyledLoginLink> 
+            <Link to="/account">My Account</Link> 
           </li>
         ) : (
           <li>
-            <StyledLoginLink to="/login">Login</StyledLoginLink>
+            <Link to="/login">Login</Link>
           </li>
         )}
         <li>
-          <StyledContactLink to="/contact">Contact</StyledContactLink>
+          <Link to="/contact">Contact</Link>
         </li>
         <li>
           <Link to="/cart" className="cart__link">
