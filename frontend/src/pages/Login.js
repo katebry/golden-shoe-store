@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { Input } from "../components/index";
+import { GoogleLogin } from "react-google-login";
+import { useDispatch } from "react-redux";
+import { addAuthToken } from "../redux/actions/authActions";
 
 export const LoginPage = () => {
   const initialState = { firstName: "", lastName: "", email: "", password: "" };
-
   const [form, setForm] = useState(initialState);
-  const [isNewUser, setIsNewUser] = useState(false)
+  const [isNewUser, setIsNewUser] = useState(false);
 
-const switchMode = () => {
-    setIsNewUser(!isNewUser)
-}
+  const dispatch = useDispatch();
+
+  const switchMode = () => {
+    setIsNewUser(!isNewUser);
+  };
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -17,6 +21,25 @@ const switchMode = () => {
 
   const handleSubmit = () => {
     console.log("yes");
+  };
+
+  const googleSuccess = async (res) => {
+    console.log(res);
+    const result = res?.profileObj;
+    const token = res?.tokenId;
+
+    try {
+      dispatch(addAuthToken(result, token));
+
+      // history.push("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const googleError = (error) => {
+    console.log(error);
+    alert("Google Sign In was unsuccessful. Try again later");
   };
 
   return (
@@ -50,6 +73,12 @@ const switchMode = () => {
           label="Password"
           placeholder="Password"
           onChange={handleChange}
+        />
+        <GoogleLogin
+          clientId={process.env.REACT_APP_GOOGLE}
+          onSuccess={googleSuccess}
+          onFailure={googleError}
+          cookiePolicy="single_host_origin"
         />
         <button onClick={handleSubmit}>
           {isNewUser ? "Sign up" : "Sign in"}
