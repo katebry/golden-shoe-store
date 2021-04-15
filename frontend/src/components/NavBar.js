@@ -37,7 +37,7 @@ const StyledContactLink = styled(Link)`
 export const NavBar = ({ handleClick }) => {
 
   const auth = useSelector((state) => state.auth);
-  const { authData } = auth;
+  const { authData, loggedIn } = auth;
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
@@ -56,7 +56,7 @@ export const NavBar = ({ handleClick }) => {
         <li>
           <StyledHomeLink to="/">Home</StyledHomeLink>
         </li>
-        {authData ? (
+        {authData || loggedIn ? (
           <li>
             <StyledLoginLink to="/account">My Account</StyledLoginLink> 
           </li>

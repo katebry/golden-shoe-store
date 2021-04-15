@@ -20,7 +20,7 @@ function App() {
   const [sideToggle, setSideToggle] = useState(false);
 
   const auth = useSelector((state) => state.auth);
-  const { authData } = auth;
+  const { authData, loggedIn } = auth;
 
   return (
     <Router>
@@ -33,7 +33,7 @@ function App() {
           <Route exact path="/product/:id" component={ProductPage} />
           <Route exact path="/cart" component={CartPage} />
           <Route exact path="/contact" component={ContactPage} />
-          {!authData ? (
+          {!authData && !loggedIn ? (
             <Route exact path="/login" component={LoginPage} />
           ) : (
             <Route exact path="/account" component={AccountPage} />

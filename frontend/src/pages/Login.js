@@ -30,7 +30,6 @@ export const LoginPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form, ": formValues");
     if (isNewUser) {
       dispatch(signUp(form, history));
     } else {
@@ -39,13 +38,11 @@ export const LoginPage = () => {
   };
 
   const googleSuccess = async (res) => {
-    console.log(res);
     const result = res?.profileObj;
     const token = res?.tokenId;
 
     try {
       dispatch(addAuthToken(result, token));
-
       history.push("/");
     } catch (error) {
       console.log(error);
