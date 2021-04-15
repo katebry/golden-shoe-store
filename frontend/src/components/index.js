@@ -4,3 +4,4 @@ export { Form } from "./Form";
 export { NavBar } from "./NavBar";
 export { SideDrawer } from "./SideDrawer";
 export { Product } from "./Product";
+export { Input } from "./Input";

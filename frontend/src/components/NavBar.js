@@ -56,7 +56,7 @@ export const NavBar = ({ handleClick }) => {
         </li>
         {loggedIn ? (
           <li>
-            <StyledLoginLink to="/account">My Account</StyledLoginLink>
+            <StyledLoginLink to="/account">My Account</StyledLoginLink> 
           </li>
         ) : (
           <li>
