@@ -6,7 +6,14 @@ import { addAuthToken } from "../redux/actions/authActions";
 import { useHistory } from "react-router-dom";
 
 export const LoginPage = () => {
-  const initialState = { firstName: "", lastName: "", email: "", password: "" };
+  const initialState = {
+    firstName: "",
+    lastName: "",
+    address: "",
+    postCode: "",
+    email: "",
+    password: "",
+  };
   const [form, setForm] = useState(initialState);
   const [isNewUser, setIsNewUser] = useState(false);
 
@@ -21,8 +28,9 @@ export const LoginPage = () => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = () => {
-    console.log("yes");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(form, ": formValues");
   };
 
   const googleSuccess = async (res) => {
@@ -41,7 +49,7 @@ export const LoginPage = () => {
 
   const googleError = (error) => {
     console.log(error);
-    alert("Google Sign In was unsuccessful. Try again later");
+    alert("Google Sign In was unsuccessful. Please try again later");
   };
 
   return (
@@ -51,30 +59,48 @@ export const LoginPage = () => {
         {isNewUser && (
           <div>
             <Input
+              name="firstName"
               type="text"
               label="First name"
               placeholder="First name"
-              onChange={handleChange}
+              handleChange={handleChange}
             />
             <Input
+              name="lastName"
               type="text"
               label="Last name"
               placeholder="Last name"
-              onChange={handleChange}
+              handleChange={handleChange}
+            />
+            <Input
+              name="address"
+              type="text"
+              label="Address"
+              placeholder="Address"
+              handleChange={handleChange}
+            />
+            <Input
+              name="postCode"
+              type="text"
+              label="Postcode"
+              placeholder="Postcode"
+              handleChange={handleChange}
             />
           </div>
         )}
         <Input
+          name="email"
           type="email"
           label="Email"
           placeholder="Email"
-          onChange={handleChange}
+          handleChange={handleChange}
         />
         <Input
+          name="password"
           type="password"
           label="Password"
           placeholder="Password"
-          onChange={handleChange}
+          handleChange={handleChange}
         />
         <GoogleLogin
           clientId={process.env.REACT_APP_GOOGLE}
