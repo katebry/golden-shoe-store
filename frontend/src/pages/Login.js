@@ -32,9 +32,9 @@ export const LoginPage = () => {
     e.preventDefault();
     console.log(form, ": formValues");
     if (isNewUser) {
-      dispatch(signUp(formData, history));
+      dispatch(signUp(form, history));
     } else {
-      dispatch(signIn(formData, history));
+      dispatch(signIn(form, history));
     }
   };
 
