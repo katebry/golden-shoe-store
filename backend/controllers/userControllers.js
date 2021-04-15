@@ -7,8 +7,7 @@ const postNewUser = async (req, res) => {
 
   try {
     const existingUser = await User.findOne({ email });
-    if (existingUser)
-      return res.status(404).json({ message: "User already not exist." });
+    if (existingUser) return res.status(404).json({ message: "User already exists." });
 
     const hashedPassword = await bcrypt.hash(password, 12);
     const result = await User.create({

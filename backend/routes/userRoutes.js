@@ -6,10 +6,7 @@ const {
   postExistingUser,
 } = require("../controllers/userControllers");
 
-// POST a new User - /user/signup
-router.post("/signup", postNewUser);
-
-// POST an existing User - /user/signin
-router.post("/signin", postExistingUser);
+// POST a User
+router.post("/", postNewUser, postExistingUser);
 
 module.exports = router;

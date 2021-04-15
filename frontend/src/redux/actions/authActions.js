@@ -11,21 +11,21 @@ export const logOut = () => async (dispatch) => {
 
 export const signUp = (formData, router) => async (dispatch) => {
   try {
+    const { data } = await axios.post("/user", formData);
+    
     dispatch({ type: actionTypes.AUTH, payload: data });
-
-    const { data } = await axios.post("/user/signup", formData);
 
     router.push("/");
   } catch (error) {
-    console.log(error);
+    console.log(error, error.message);
   }
 };
 
 export const signIn = (formData, router) => async (dispatch) => {
   try {
-    dispatch({ type: actionTypes.AUTH, payload: data });
+    const { data } = await axios.post("/user", formData);
 
-    const { data } = await axios.post("/user/signin", formData);
+    dispatch({ type: actionTypes.AUTH, payload: data });
 
     router.push("/");
   } catch (error) {
