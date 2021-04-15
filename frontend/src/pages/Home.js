@@ -43,25 +43,27 @@ export const HomePage = () => {
           alt="20% off kids shoes, enter code 'KID20'. Spend £60 and get £10 off your purchase (excluding kids shoes)"
         />
       </div>
-      <div className="categoryFilter">
-        Filter by Category:
-        {categoryButtons.map((type) => (
-          <button
-            key={type.category}
-            onClick={() => filterProducts(type.category)}
-          >
-            {type.category}
-          </button>
-        ))}
-      </div>
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
+      <div className="filterWrapper">
+        <div className="categoryFilter">
+          Filter:
+          {categoryButtons.map((type) => (
+            <button
+              key={type.category}
+              onClick={() => filterProducts(type.category)}
+            >
+              {type.category.toUpperCase()}
+            </button>
+          ))}
+        </div>
+        </div>
+        <div className="search">
+          <input
+            type="text"
+            placeholder="Search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
       <div className="homepage__products">
         {loading ? (
           <h2>LOADING...</h2>

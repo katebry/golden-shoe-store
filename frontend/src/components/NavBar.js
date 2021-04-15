@@ -30,7 +30,7 @@ export const NavBar = ({ handleClick }) => {
 
   return (
     <nav className="navBar">
-      <StyledTitle to="/">Golden Shoes</StyledTitle>
+      <StyledTitle to="/">Golden Shoe</StyledTitle>
       <ul className="navBar__links">
         <li>
           <Link to="/">Home</Link>
