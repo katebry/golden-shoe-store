@@ -36,12 +36,13 @@
   flex: 1;
   padding: 1rem;
   text-decoration: none;
-  color: #bfb5af;
+  color: black;
   font-size: 1.6rem;
 }
 
 .sidedrawer__links > li > a:hover {
-  background-color: #582c4d;
+  background-color: #003e2c;
+  color: white;
 }
 
 .sidedrawer__links > li > a > span {
@@ -58,15 +59,10 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #a26769;
-  color: #bfb5af;
+  background-color: #f3e8ee;
+  color: #e78343;
   font-size: 1rem;
   margin-left: 8px;
-}
-
-.sidedrawer__cartbadge:hover {
-  color: #582c4d;
-  background-color: #ece2d0;
 }
 
 @media (min-width: 960px) {
