@@ -4,6 +4,7 @@ const express = require("express");
 const connectDb = require("./config/db");
 const productRoutes = require("./routes/productRoutes");
 const emailRoute = require("./routes/emailRoute");
+const userRoutes = require("./routes/userRoutes")
 
 connectDb();
 
@@ -14,6 +15,8 @@ app.use(express.json());
 app.use("/api/products", productRoutes);
 
 app.use("/send", emailRoute);
+
+app.use("/user", userRoutes)
 
 const PORT = process.env.PORT || 5001;
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Input } from "../components/index";
 import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
-import { addAuthToken } from "../redux/actions/authActions";
+import { addAuthToken, signUp, signIn } from "../redux/actions/authActions";
 import { useHistory } from "react-router-dom";
 
 export const LoginPage = () => {
@@ -31,6 +31,11 @@ export const LoginPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(form, ": formValues");
+    if (isNewUser) {
+      dispatch(signUp(formData, history));
+    } else {
+      dispatch(signIn(formData, history));
+    }
   };
 
   const googleSuccess = async (res) => {
