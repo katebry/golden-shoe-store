@@ -8,6 +8,7 @@
   background-color: white;
   border-radius: 2px;
   place-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 .cartitem__name {
@@ -21,18 +22,19 @@
 
 .cartitem__deleteBtn {
   padding: 10px 17px;
-  color: red;
-  background: #bfb5af;
+  background-color: #003e2c;
+  color: white;
   border: 1px solid black;
   cursor: pointer;
+  font-size: 0.9rem;
   transition: all 0.3s ease-out;
 }
 
 .cartitem__deleteBtn:hover,
 .cartitem__deleteBtn:active,
 .cartitem__deleteBtn:focus {
-  background-color: #582c4d;
-  transform: scale(1.2);
+  background-color: #e78343;
+  transform: scale(1.1);
   border-radius: 3px;
 }
 
