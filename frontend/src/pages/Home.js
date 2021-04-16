@@ -48,6 +48,7 @@ export const HomePage = () => {
           Filter:
           {categoryButtons.map((type) => (
               <button
+                style={{margin: '3px'}}
                 key={type.category}
                 onClick={() => filterProducts(type.category)}
               >

@@ -29,6 +29,10 @@ body {
   font-family: "Futura";
 }
 
+input:focus {
+  outline: none;
+}
+
 img {
   width: 100%;
   object-fit: contain;
@@ -44,6 +48,11 @@ button {
   border-radius: 3px;
   color: white;
   padding: 3px;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: none;
 }
 
 textarea {
