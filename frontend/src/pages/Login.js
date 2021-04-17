@@ -134,7 +134,7 @@ export const LoginPage = () => {
           </ButtonContainer>
           <ButtonContainer>
             <button onClick={handleSubmit}>
-              {isNewUser ? "Sign up" : "Sign in"}
+              {isNewUser ? "SIGN UP" : "SIGN IN"}
             </button>
           </ButtonContainer>
           <ButtonContainer>
