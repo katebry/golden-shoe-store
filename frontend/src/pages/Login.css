@@ -1,0 +1,17 @@
+.loginpage {
+  max-width: 1300px;
+  margin: 1rem auto;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.heading {
+  max-width: 1300px;
+  margin: 1rem auto;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+}

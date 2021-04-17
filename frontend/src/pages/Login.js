@@ -4,6 +4,7 @@ import { GoogleLogin } from "react-google-login";
 import { useDispatch } from "react-redux";
 import { addAuthToken, signUp, signIn } from "../redux/actions/authActions";
 import { useHistory } from "react-router-dom";
+import "./Login.css";
 
 export const LoginPage = () => {
   const initialState = {
@@ -56,39 +57,46 @@ export const LoginPage = () => {
 
   return (
     <>
-      {isNewUser ? <h2>Sign up</h2> : <h2>Login</h2>}
-      <form onSubmit={handleSubmit}>
+    <div className="heading">
+        {isNewUser ? <h2>Sign up</h2> : <h2>Login</h2>}
+      </div>
+        <div className="loginpage">
+      <form className="loginForm" onSubmit={handleSubmit}>
         {isNewUser && (
-          <div>
-            <Input
-              name="firstName"
-              type="text"
-              label="First name"
-              placeholder="First name"
-              handleChange={handleChange}
-            />
-            <Input
-              name="lastName"
-              type="text"
-              label="Last name"
-              placeholder="Last name"
-              handleChange={handleChange}
-            />
-            <Input
-              name="address"
-              type="text"
-              label="Address"
-              placeholder="Address"
-              handleChange={handleChange}
-            />
-            <Input
-              name="postCode"
-              type="text"
-              label="Postcode"
-              placeholder="Postcode"
-              handleChange={handleChange}
-            />
-          </div>
+          <>
+            <div>
+              <Input
+                name="firstName"
+                type="text"
+                label="First name"
+                placeholder="First name"
+                handleChange={handleChange}
+              />
+              <Input
+                name="lastName"
+                type="text"
+                label="Last name"
+                placeholder="Last name"
+                handleChange={handleChange}
+              />
+            </div>
+            <div>
+              <Input
+                name="address"
+                type="text"
+                label="Address"
+                placeholder="Address"
+                handleChange={handleChange}
+              />
+              <Input
+                name="postCode"
+                type="text"
+                label="Postcode"
+                placeholder="Postcode"
+                handleChange={handleChange}
+              />
+            </div>
+          </>
         )}
         <Input
           name="email"
@@ -119,6 +127,7 @@ export const LoginPage = () => {
             : "Don't have an account? Sign Up"}
         </button>
       </form>
+    </div>
     </>
   );
 };
