@@ -2,3 +2,13 @@ input {
   font-size: 1rem;
   padding: 10px;
 }
+
+label {
+  margin-bottom: 5px;
+}
+
+.inputContainer {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}

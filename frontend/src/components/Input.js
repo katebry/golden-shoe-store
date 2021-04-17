@@ -1,7 +1,7 @@
 import "./Input.css"
 
 export const Input = ({ name, handleChange, label, type, placeholder }) => (
-    <>
+    <div className="inputContainer">
     <label>{label}</label>
       <input
         name={name}
@@ -11,5 +11,5 @@ export const Input = ({ name, handleChange, label, type, placeholder }) => (
         type={type}
         placeholder={placeholder}
       />
-    </>
+    </div>
   );
