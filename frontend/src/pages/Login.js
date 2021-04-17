@@ -5,6 +5,18 @@ import { useDispatch } from "react-redux";
 import { addAuthToken, signUp, signIn } from "../redux/actions/authActions";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
+import styled from "styled-components";
+
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+`;
+
+const StyledText = styled.div`
+  cursor: pointer;
+  font-size: 1rem;
+`
 
 export const LoginPage = () => {
   const initialState = {
@@ -57,77 +69,83 @@ export const LoginPage = () => {
 
   return (
     <>
-    <div className="heading">
+      <div className="heading">
         {isNewUser ? <h2>Sign up</h2> : <h2>Login</h2>}
       </div>
-        <div className="loginpage">
-      <form className="loginForm" onSubmit={handleSubmit}>
-        {isNewUser && (
-          <>
-            <div>
-              <Input
-                name="firstName"
-                type="text"
-                label="First name"
-                placeholder="First name"
-                handleChange={handleChange}
-              />
-              <Input
-                name="lastName"
-                type="text"
-                label="Last name"
-                placeholder="Last name"
-                handleChange={handleChange}
-              />
-            </div>
-            <div>
-              <Input
-                name="address"
-                type="text"
-                label="Address"
-                placeholder="Address"
-                handleChange={handleChange}
-              />
-              <Input
-                name="postCode"
-                type="text"
-                label="Postcode"
-                placeholder="Postcode"
-                handleChange={handleChange}
-              />
-            </div>
-          </>
-        )}
-        <Input
-          name="email"
-          type="email"
-          label="Email"
-          placeholder="Email"
-          handleChange={handleChange}
-        />
-        <Input
-          name="password"
-          type="password"
-          label="Password"
-          placeholder="Password"
-          handleChange={handleChange}
-        />
-        <GoogleLogin
-          clientId={process.env.REACT_APP_GOOGLE}
-          onSuccess={googleSuccess}
-          onFailure={googleError}
-          cookiePolicy="single_host_origin"
-        />
-        <button onClick={handleSubmit}>
-          {isNewUser ? "Sign up" : "Sign in"}
-        </button>
-        <button onClick={switchMode}>
-          {isNewUser
-            ? "Already have an account? Sign in"
-            : "Don't have an account? Sign Up"}
-        </button>
-      </form>
-    </div>
+      <div className="loginpage">
+        <form className="loginForm" onSubmit={handleSubmit}>
+          {isNewUser && (
+            <>
+              <div>
+                <Input
+                  name="firstName"
+                  type="text"
+                  label="First name"
+                  placeholder="First name"
+                  handleChange={handleChange}
+                />
+                <Input
+                  name="lastName"
+                  type="text"
+                  label="Last name"
+                  placeholder="Last name"
+                  handleChange={handleChange}
+                />
+              </div>
+              <div>
+                <Input
+                  name="address"
+                  type="text"
+                  label="Address"
+                  placeholder="Address"
+                  handleChange={handleChange}
+                />
+                <Input
+                  name="postCode"
+                  type="text"
+                  label="Postcode"
+                  placeholder="Postcode"
+                  handleChange={handleChange}
+                />
+              </div>
+            </>
+          )}
+          <Input
+            name="email"
+            type="email"
+            label="Email"
+            placeholder="Email"
+            handleChange={handleChange}
+          />
+          <Input
+            name="password"
+            type="password"
+            label="Password"
+            placeholder="Password"
+            handleChange={handleChange}
+          />
+          <ButtonContainer>
+            <GoogleLogin
+              clientId={process.env.REACT_APP_GOOGLE}
+              onSuccess={googleSuccess}
+              onFailure={googleError}
+              cookiePolicy="single_host_origin"
+            />
+          </ButtonContainer>
+          <ButtonContainer>
+            <button onClick={handleSubmit}>
+              {isNewUser ? "Sign up" : "Sign in"}
+            </button>
+          </ButtonContainer>
+          <ButtonContainer>
+            <StyledText onClick={switchMode}>
+              {isNewUser
+                ? "Already have an account? Sign in"
+                : "Don't have an account? Sign Up"}
+            </StyledText>
+          </ButtonContainer>
+        </form>
+      </div>
     </>
   );
 };
