@@ -1,14 +1,26 @@
+import { useState } from "react";
 import "./Cart.css";
 import { CartItem } from "../components/index";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart, removeFromCart } from "../redux/actions/cartActions";
+import styled from "styled-components";
+
+const InputWrapper = styled.div`
+  padding: 8px;
+`;
+
+const StyledOfferText = styled.div`
+  font-weight: bold;
+  padding: 8px;
+`
 
 export const CartPage = () => {
   const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const [discount, setDiscount] = useState("");
 
   const quantityChangeHandler = (id, quantity) => {
     dispatch(addToCart(id, quantity));
@@ -57,8 +69,17 @@ export const CartPage = () => {
           <p>Items in cart: {getCartCount()}</p>
           <p>Total cost: £{getCartTotal().toFixed(2)}</p>
           {getCartTotal().toFixed(2) >= 60 && (
-            <p>Congratulations, you qualify for our £10 off discount!</p>
+            <StyledOfferText>Congratulations, you qualify for our £10 off discount!</StyledOfferText>
           )}
+          <p>Got a discount code? Enter it here:</p>
+          <InputWrapper>
+            <input
+              type="text"
+              placeholder="%EXAMPLE%"
+              value={discount}
+              onChange={(e) => setDiscount(e.target.value)}
+            />
+          </InputWrapper>
         </div>
         <div>
           <button className="cartpage__btn">Proceed to Checkout</button>
