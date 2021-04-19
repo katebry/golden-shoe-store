@@ -6,7 +6,8 @@ import { useSelector } from "react-redux";
 export const SideDrawer = ({ show, handleClick }) => {
   const sideDrawerClass = ["sidedrawer"];
 
-  const loggedIn = false;
+  const auth = useSelector((state) => state.auth);
+  const { authData, loggedIn } = auth;
 
   if (show) sideDrawerClass.push("show");
 
@@ -27,15 +28,15 @@ export const SideDrawer = ({ show, handleClick }) => {
           <li>
             <Link to="/">Home</Link>
           </li>
-          {loggedIn ? (
-            <li>
-              <Link to="/account">My Account</Link>
-            </li>
-          ) : (
-            <li>
-              <Link to="/login">Login</Link>
-            </li>
-          )}
+          {authData || loggedIn ? (
+          <li>
+            <Link to="/account">My Account</Link> 
+          </li>
+        ) : (
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+        )}
           <li>
             <Link to="/contact">Contact</Link>
           </li>

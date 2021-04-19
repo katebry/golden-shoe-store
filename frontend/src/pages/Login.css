@@ -7,17 +7,10 @@
 }
 
 .heading {
-  max-width: 1300px;
-  margin: 1rem auto;
+  padding: 1.5rem 1rem;
 }
 
 .loginForm {
   display: flex;
   flex-direction: column;
-}
-
-@media (max-width: 960px) {
-  .heading {
-    padding-left: 20px;
-  }
 }
