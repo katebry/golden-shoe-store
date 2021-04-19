@@ -70,7 +70,9 @@ export const Form = ({ handleSuccess }) => {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
       />
-      <button onClick={PostData}>Send Message</button>
+      <div className="buttonWrapper">
+        <button onClick={PostData}>Send Message</button>
+      </div>
     </div>
   );
 };
