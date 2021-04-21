@@ -9,7 +9,7 @@ const StyledTitle = styled.h1`
 `;
 
 const StyledH2 = styled.h2`
-  color: #ca3cff;
+  color: #e78343;
 `;
 
 export const ContactPage = () => {
@@ -54,7 +54,7 @@ export const ContactPage = () => {
       <div className="successMessage">
         {success ? (
           <StyledH2>
-            Thanks for contacting Golden Shoes, we aim to respond to your query
+            Thanks for contacting Golden Shoe, we aim to respond to your query
             within 48 hours.
           </StyledH2>
         ) : (
